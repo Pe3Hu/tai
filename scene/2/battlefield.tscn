@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjukeekvvd16b"]
+
+[ext_resource type="Script" path="res://scene/2/battlefield.gd" id="1_mm35c"]
+[ext_resource type="PackedScene" uid="uid://jrjdj7d4tlay" path="res://scene/1/sudoku.tscn" id="2_ju65t"]
+[ext_resource type="PackedScene" uid="uid://c2o6awlygoevq" path="res://scene/2/keypad.tscn" id="3_x8xr6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqfkj"]
+bg_color = Color(0.479975, 0.272978, 0.669078, 0.709804)
+
+[node name="Battlefield" type="PanelContainer" node_paths=PackedStringArray("sudoku", "keypad", "camps")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -72.0
+offset_right = 124.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bqfkj")
+script = ExtResource("1_mm35c")
+sudoku = NodePath("HBox/Sudoku")
+keypad = NodePath("HBox/Keypad")
+camps = NodePath("HBox/Camps")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Sudoku" parent="HBox" node_paths=PackedStringArray("battlefield") instance=ExtResource("2_ju65t")]
+layout_mode = 2
+battlefield = NodePath("../..")
+
+[node name="Keypad" parent="HBox" node_paths=PackedStringArray("battlefield") instance=ExtResource("3_x8xr6")]
+visible = false
+layout_mode = 2
+battlefield = NodePath("../..")
+
+[node name="Camps" type="VBoxContainer" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1

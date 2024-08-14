@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=3 uid="uid://dj1b3msj4dduj"]
+
+[ext_resource type="FontFile" uid="uid://33eqagvh85us" path="res://asset/font/digital/Inter-Black.ttf" id="1_hrpsr"]
+[ext_resource type="Script" path="res://scene/0/numbered_button.gd" id="2_50paj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybq6o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w68eh"]
+bg_color = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msguh"]
+bg_color = Color(0.21, 0.21, 0.21, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jl843"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ers5j"]
+
+[node name="NumberedButton" type="Button"]
+custom_minimum_size = Vector2(48, 48)
+offset_right = 48.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("1_hrpsr")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_ybq6o")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w68eh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_msguh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jl843")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ers5j")
+script = ExtResource("2_50paj")
+value = -1
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

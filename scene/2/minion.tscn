@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c047oweam6ta3"]
+
+[ext_resource type="Script" path="res://scene/2/minion.gd" id="1_svy1s"]
+[ext_resource type="PackedScene" uid="uid://dj1b3msj4dduj" path="res://scene/0/numbered_button.tscn" id="2_ti1u8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0kcpd"]
+
+[node name="Minion" type="PanelContainer" node_paths=PackedStringArray("power")]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0kcpd")
+script = ExtResource("1_svy1s")
+power = NodePath("Power")
+
+[node name="Power" parent="." node_paths=PackedStringArray("proprietor") instance=ExtResource("2_ti1u8")]
+layout_mode = 2
+proprietor = NodePath("..")

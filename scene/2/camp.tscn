@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://syl7t07abrap"]
+
+[ext_resource type="Script" path="res://scene/2/camp.gd" id="1_ck0wj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lseex"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+draw_center = false
+
+[node name="Camp" type="PanelContainer" node_paths=PackedStringArray("on_reserve_minions")]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lseex")
+script = ExtResource("1_ck0wj")
+on_reserve_minions = NodePath("Minions/Reseve")
+
+[node name="Minions" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="Reseve" type="GridContainer" parent="Minions"]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 5
