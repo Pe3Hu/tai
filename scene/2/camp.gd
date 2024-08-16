@@ -68,8 +68,10 @@ func set_active_minion(active_minion_: Minion) -> void:
 	
 func move_minion_on_field() -> void:
 	if battlefield.sudoku.active_cell != null:
-		battlefield.sudoku.set_cell_based_on_camp()
-		battlefield.pass_banner()
-		resource.move_minion_on_field(active_minion.resource)
-		on_reserve_minions.remove_child(active_minion)
-		active_minion.queue_free()
+		var flag = battlefield.sudoku.set_cell_based_on_camp()
+		
+		if flag:
+			battlefield.pass_banner()
+			resource.move_minion_on_field(active_minion.resource)
+			on_reserve_minions.remove_child(active_minion)
+			active_minion.queue_free()

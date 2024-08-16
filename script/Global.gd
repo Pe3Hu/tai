@@ -139,6 +139,7 @@ func init_color():
 	color.camp[0] = Color.from_hsv(0.0 / h, 0.7, 0.7)
 	color.camp[1] = Color.from_hsv(120.0 / h, 0.7, 0.7)
 	color.camp[2] = Color.from_hsv(210.0 / h, 0.7, 0.7)
+	color.camp[3] = Color.from_hsv(270.0 / h, 0.7, 0.7)
 	
 func save(path_: String, data_: String):
 	var path = path_ + ".json"

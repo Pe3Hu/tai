@@ -1,7 +1,10 @@
 class_name SudokuResource extends Resource
 
 
+var battlefield: BattlefieldResource:
+	set = set_battlefield
 var tree: TreeResource
+var soil: SoilResource
 var cols: Array[KitResource]
 var rows: Array[KitResource]
 var blocks: Array[KitResource]
@@ -16,6 +19,10 @@ const n = 9
 const types = ["col", "row", "block"]
 
 
+func set_battlefield(battlefield_: BattlefieldResource) -> SudokuResource:
+	battlefield = battlefield_
+	return self
+	
 func _init() -> void:
 	init_kits()
 	init_cells()
@@ -23,6 +30,8 @@ func _init() -> void:
 	
 	tree = TreeResource.new()
 	tree.set_sudoku(self)
+	soil = SoilResource.new()
+	soil.set_sudoku(self)
 	
 func init_kits() -> void:
 	for type in types:

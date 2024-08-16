@@ -1,10 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://83uiduawvgur"]
+[gd_scene load_steps=14 format=3 uid="uid://83uiduawvgur"]
 
 [ext_resource type="PackedScene" uid="uid://dj1b3msj4dduj" path="res://scene/0/numbered_button.tscn" id="1_nshc7"]
 [ext_resource type="PackedScene" uid="uid://csusojih45u56" path="res://scene/0/paneled_number.tscn" id="2_megmj"]
 [ext_resource type="Script" path="res://scene/1/cell.gd" id="2_mxidb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_elkvn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgu87"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ea4ji"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ai63p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ng0a6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glodl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvbii"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l2q7u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vocs4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fvmx"]
 
 [node name="Cell" node_paths=PackedStringArray("options") instance=ExtResource("1_nshc7")]
 theme_override_styles/disabled = SubResource("StyleBoxFlat_elkvn")
@@ -34,53 +52,62 @@ columns = 3
 [node name="Option1" parent="Options" index="0" instance=ExtResource("2_megmj")]
 custom_minimum_size = Vector2(13, 13)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lgu87")
 value = 1
 zoom = 1
 
 [node name="Option2" parent="Options" index="1" instance=ExtResource("2_megmj")]
 custom_minimum_size = Vector2(13, 13)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ea4ji")
 value = 2
 zoom = 1
 
 [node name="Option3" parent="Options" index="2" instance=ExtResource("2_megmj")]
 custom_minimum_size = Vector2(13, 13)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ai63p")
 value = 3
 zoom = 1
 
 [node name="Option4" parent="Options" index="3" instance=ExtResource("2_megmj")]
 custom_minimum_size = Vector2(13, 13)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ng0a6")
 value = 4
 zoom = 1
 
 [node name="Option5" parent="Options" index="4" instance=ExtResource("2_megmj")]
 custom_minimum_size = Vector2(13, 13)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_glodl")
 value = 5
 zoom = 1
 
 [node name="Option6" parent="Options" index="5" instance=ExtResource("2_megmj")]
 custom_minimum_size = Vector2(13, 13)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pvbii")
 value = 6
 zoom = 1
 
 [node name="Option7" parent="Options" index="6" instance=ExtResource("2_megmj")]
 custom_minimum_size = Vector2(13, 13)
 layout_mode = 2
-value = 7
+theme_override_styles/panel = SubResource("StyleBoxFlat_l2q7u")
+value = 8
 zoom = 1
 
 [node name="Option8" parent="Options" index="7" instance=ExtResource("2_megmj")]
 custom_minimum_size = Vector2(13, 13)
 layout_mode = 2
-value = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_vocs4")
+value = 2
 zoom = 1
 
 [node name="Option9" parent="Options" index="8" instance=ExtResource("2_megmj")]
 custom_minimum_size = Vector2(13, 13)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1fvmx")
 value = 9
 zoom = 1

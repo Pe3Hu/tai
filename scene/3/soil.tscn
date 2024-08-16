@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdpv4mqpfx40h"]
+
+[ext_resource type="Script" path="res://scene/3/soil.gd" id="1_s0fdy"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dnf2d"]
+fractal_type = 2
+fractal_octaves = 4
+fractal_gain = 2.0
+domain_warp_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hdj7o"]
+width = 9
+height = 9
+seamless_blend_skirt = 0.0
+noise = SubResource("FastNoiseLite_dnf2d")
+
+[node name="Soil" type="PanelContainer" node_paths=PackedStringArray("fields", "sprite")]
+custom_minimum_size = Vector2(180, 180)
+offset_right = 180.0
+offset_bottom = 180.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_s0fdy")
+fields = NodePath("Fields")
+sprite = NodePath("Sprite2D")
+
+[node name="Fields" type="GridContainer" parent="."]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(20, 20)
+texture = SubResource("NoiseTexture2D_hdj7o")
+centered = false

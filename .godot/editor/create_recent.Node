@@ -1,6 +1,7 @@
-VBoxContainer
+Sprite2D
 GridContainer
 PanelContainer
+VBoxContainer
 HBoxContainer
 Button
 Line2D
@@ -9,6 +10,5 @@ Label
 TileMap
 AnimationPlayer
 AnimatedSprite2D
-Sprite2D
 CharacterBody2D
 CanvasLayer

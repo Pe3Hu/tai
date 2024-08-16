@@ -16,12 +16,12 @@ func set_god(god_: GodResource) -> CampResource:
 	god = god_
 	god.camps.append(self)
 	fill_reserve_minions()
+	battlefield.camps.append(self)
 	return self
 	
 func set_battlefield(battlefield_: BattlefieldResource) -> CampResource:
 	battlefield = battlefield_
 	init_order()
-	battlefield.camps.append(self)
 	return self
 	
 func init_order() -> void:

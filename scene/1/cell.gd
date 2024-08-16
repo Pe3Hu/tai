@@ -9,6 +9,7 @@ var resource: CellResource:
 	set = set_resource
 var disabled_style: StyleBoxFlat
 
+
 func set_sudoku(sudoku_: Sudoku) -> Cell:
 	sudoku = sudoku_
 	sudoku_.cells.add_child(self)

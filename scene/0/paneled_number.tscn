@@ -3,13 +3,14 @@
 [ext_resource type="Script" path="res://scene/0/paneled_number.gd" id="1_apw60"]
 [ext_resource type="FontFile" uid="uid://33eqagvh85us" path="res://asset/font/digital/Inter-Black.ttf" id="2_6bepy"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jail2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l14hh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="PaneledNumber" type="PanelContainer" node_paths=PackedStringArray("label")]
 offset_right = 16.0
 offset_bottom = 16.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_jail2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_l14hh")
 script = ExtResource("1_apw60")
 label = NodePath("Label")
 

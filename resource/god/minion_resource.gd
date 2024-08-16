@@ -7,6 +7,7 @@ var power: int:
 	set = set_power
 var camp: CampResource
 
+
 func set_god(god_: GodResource) -> MinionResource:
 	god = god_
 	god.temple.available_minions.append(self)

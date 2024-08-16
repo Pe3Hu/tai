@@ -9,13 +9,13 @@ class_name PaneledNumber extends PanelContainer
 		
 		match type:
 			"stipulation":
-				color = Color.PAPAYA_WHIP
+				label_color = Color.PAPAYA_WHIP
 			"guess":
-				color = Color.DARK_ORANGE
+				label_color = Color.DARK_ORANGE
 			"solution":
-				color = Color.SEA_GREEN
+				label_color = Color.SEA_GREEN
 		
-		label.set("theme_override_colors/font_color", color)
+		label.set("theme_override_colors/font_color", label_color)
 	get:
 		return type
 @export var value: int:
@@ -35,8 +35,16 @@ class_name PaneledNumber extends PanelContainer
 	get:
 		return zoom
 
-
-var color
+var label_color
+var style: StyleBoxFlat
 
 const base_size = Vector2(13, 13)
 const base_font = 10
+
+
+func _ready() -> void:
+	init_style()
+	
+func init_style() -> void:
+	style = StyleBoxFlat.new()
+	set("theme_override_styles/panel", style)

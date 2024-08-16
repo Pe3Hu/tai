@@ -79,3 +79,7 @@ func inject_number_to_cells() -> void:
 	
 	numbers.append(number)
 	sudoku.variations[numbers.size()].append(self)
+	
+func get_biggest_number() -> int:
+	numbers.sort()
+	return numbers.back()

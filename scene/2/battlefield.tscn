@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjukeekvvd16b"]
+[gd_scene load_steps=6 format=3 uid="uid://bjukeekvvd16b"]
 
 [ext_resource type="Script" path="res://scene/2/battlefield.gd" id="1_mm35c"]
 [ext_resource type="PackedScene" uid="uid://jrjdj7d4tlay" path="res://scene/1/sudoku.tscn" id="2_ju65t"]
 [ext_resource type="PackedScene" uid="uid://c2o6awlygoevq" path="res://scene/2/keypad.tscn" id="3_x8xr6"]
+[ext_resource type="PackedScene" uid="uid://bdpv4mqpfx40h" path="res://scene/3/soil.tscn" id="4_bsff0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqfkj"]
-bg_color = Color(0.479975, 0.272978, 0.669078, 0.709804)
+bg_color = Color(0.643137, 0.670588, 0.831373, 0.709804)
 
-[node name="Battlefield" type="PanelContainer" node_paths=PackedStringArray("sudoku", "keypad", "camps")]
+[node name="Battlefield" type="PanelContainer" node_paths=PackedStringArray("sudoku", "keypad", "camps", "blocks", "soil")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -24,6 +25,8 @@ script = ExtResource("1_mm35c")
 sudoku = NodePath("HBox/Sudoku")
 keypad = NodePath("HBox/Keypad")
 camps = NodePath("HBox/Camps")
+blocks = NodePath("HBox/Blocks")
+soil = NodePath("HBox/Soil")
 
 [node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -44,3 +47,15 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
+
+[node name="Blocks" type="GridContainer" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 3
+
+[node name="Soil" parent="HBox" node_paths=PackedStringArray("battlefield") instance=ExtResource("4_bsff0")]
+layout_mode = 2
+battlefield = NodePath("../..")

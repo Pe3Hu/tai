@@ -5,8 +5,10 @@ var world: WorldResource:
 	set = set_world
 var reserve_count: int:
 	set = set_reserve_count
+var sudoku: SudokuResource
 
 var camps: Array[CampResource]
+var demon_camp: CampResource
 
 const temple_count = 3
 
@@ -29,3 +31,7 @@ func init_camps() -> void:
 	for _i in temple_count:
 		var god = options.pop_front()
 		god.add_camp(self)
+	
+	demon_camp = CampResource.new()
+	demon_camp.set_battlefield(self).set_god(world.heaven.demon_god)
+	camps.erase(demon_camp)

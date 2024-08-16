@@ -18,11 +18,11 @@ const gap = 0
 
 func _ready() -> void:
 	resource = SudokuResource.new()
+	
 	init_cells()
 	init_lines()
 	#fill_cells()
 	
-	lines.position = width * Vector2.ONE * 2.25
 	#cells.set("theme_override_constants/h_separation", gap)
 	#cells.set("theme_override_constants/v_separation", gap)
 	
@@ -35,6 +35,7 @@ func init_cells() -> void:
 		cell.set_resource(cell_resource).set_sudoku(self)
 
 func init_lines() -> void:
+	lines.position = width * Vector2.ONE * 2.25
 	var orientations = ["col", "row"]
 	var types = [
 		"thick",
@@ -124,9 +125,11 @@ func update_cell(cell_resource_: CellResource) -> void:
 			var cell = cells.get_child(cell_resource.index)
 			cell.update_options()
 	
-	var index = cell_resource_
-	var cell = cells.get_child(cell_resource_.index)
-	cell.disabled_style.bg_color = cell_resource_.minion.camp.color
+	var _cell = cells.get_child(cell_resource_.index)
+	_cell.disabled_style.bg_color = cell_resource_.minion.camp.color
+	var index = resource.blocks.find(cell_resource_.block)
+	var block = battlefield.blocks.get_child(index)
+	block.change_power(cell_resource_.minion.camp, _cell.resource.number)
 	
 func set_cell_based_on_keypad() -> void:
 	if active_cell != null and battlefield.keypad.active_cell != null:
@@ -138,19 +141,22 @@ func set_cell_based_on_keypad() -> void:
 		active_cell.resource.strike_out_number_from_kits()
 		update_cell(active_cell.resource)
 	
-func set_cell_based_on_camp() -> void:
+func set_cell_based_on_camp() -> bool:
 	if active_cell != null and battlefield.active_camp.active_minion != null:
-		if active_cell.resource.number != -1:
-			active_cell.resource.inject_number_to_cells()
+		var minion_resource = battlefield.active_camp.active_minion.resource
 		
-		#var minion_resourece = battlefield.active_camp.active_minion
-		#active_cell.resource.number = minion_resourece.power
-		active_cell.resource.minion = battlefield.active_camp.active_minion.resource
-		#active_cell.value = battlefield.keypad.active_cell.value
-		active_cell.resource.strike_out_number_from_kits()
-		update_cell(active_cell.resource)
-		active_cell.button_pressed = false
-		active_cell = null
+		if active_cell.resource.numbers.has(minion_resource.power):
+			if active_cell.resource.number != -1:
+				active_cell.resource.inject_number_to_cells()
+			
+			active_cell.resource.minion = battlefield.active_camp.active_minion.resource
+			active_cell.resource.strike_out_number_from_kits()
+			update_cell(active_cell.resource)
+			active_cell.button_pressed = false
+			active_cell = null
+			return true
+	
+	return false
 	
 func _input(event) -> void:
 	if event is InputEventKey:
